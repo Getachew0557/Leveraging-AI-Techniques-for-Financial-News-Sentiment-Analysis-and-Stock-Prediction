@@ -1,19 +1,19 @@
 name: Run Unit Tests
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
-        python-version: '3.9'
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
@@ -22,4 +22,5 @@ jobs:
 
     - name: Run tests
       run: |
+        # Command to run your tests
         pytest
