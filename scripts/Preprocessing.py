@@ -13,12 +13,30 @@ def load_data(file_path):
     return df
 
 def summary_statistics(df):
+
     return df.describe()
 
+
 def check_missing_values(df):
-    missing_values = df.isnull().sum()
-    print("Missing Values:\n", missing_values)
-    return missing_values
+
+    return df.isnull().sum()
+
+
+def remove_columns(df):
+
+    return df.drop(columns=['Unnamed: 0'])
+
+
+def add_headline_length(df):
+
+    df['headline_length'] = df['headline'].apply(len)
+    return df
+
+
+def get_headline_length_stats(df):
+    
+    return df['headline_length'].describe()
+
 
 def convert_date(df):
     """Convert the 'Date' column to datetime and set it as the index."""
@@ -91,4 +109,5 @@ def financial_metrics(ticker):
     metrics['Dividend_Yield'] = info.get('dividendYield', 'N/A')
     
     return metrics
+
 
