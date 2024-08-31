@@ -1,9 +1,9 @@
-name: Run Unit Tests
+name: Unit Tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -11,19 +11,28 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.x'
+        python-version: '3.12'
+
+    - name: Install Miniconda
+      run: |
+        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+        bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda
+        echo "$HOME/miniconda/bin" >> $GITHUB_PATH
+
+    - name: Create Conda environment
+      run: |
+        conda create -n myenv python=3.12
+        conda activate myenv
+        conda install -c conda-forge ta-lib
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
+        conda activate myenv
         pip install -r requirements.txt
-
-    - name: Check installed packages
-      run: |
-        pip list
 
     - name: Run tests
       run: |
-        pytest --maxfail=1 --disable-warnings -q
+        conda activate myenv
+        pytest
