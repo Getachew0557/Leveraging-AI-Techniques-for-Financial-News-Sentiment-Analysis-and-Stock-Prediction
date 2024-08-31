@@ -9,6 +9,8 @@ venv/
 .enve/
 env_week2/
 .env_week2/
+env_task2/
+.enve_task2/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/

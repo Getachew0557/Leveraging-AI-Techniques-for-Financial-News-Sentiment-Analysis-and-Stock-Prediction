@@ -1,9 +1,24 @@
 # Notebooks
 
-This directory contains Jupyter notebooks that perform various tasks like data preprocessing, model training, and evaluation.
+This directory contains Jupyter notebooks used for data analysis, model development, and experimentation. Each notebook focuses on a different aspect of the project or a specific stock.
 
-## Notebooks Available
+## Notebooks Included
 
-- `data_exploration.ipynb`: Explores the dataset and visualizes initial findings.
-- `model_training.ipynb`: Includes code for training different machine learning models on the processed data.
-- `model_evaluation.ipynb`: Evaluates the trained models and compares their performance.
+- **AAPL_model.ipynb**: Analysis and model development for Apple Inc. (AAPL) stock.
+- **AMZN_model.ipynb**: Analysis and model development for Amazon Inc. (AMZN) stock.
+- **GOOG_model.ipynb**: Analysis and model development for Alphabet Inc. (GOOGL) stock.
+- **META_model.ipynb**: Analysis and model development for Meta Platforms Inc. (META) stock.
+- **MSFT_model.ipynb**: Analysis and model development for Microsoft Corp. (MSFT) stock.
+- **NVDA_model.ipynb**: Analysis and model development for NVIDIA Corp. (NVDA) stock.
+- **TSLA_model.ipynb**: Analysis and model development for Tesla Inc. (TSLA) stock.
+- **model.ipynb**: A general notebook for developing and testing models across all stocks.
+
+## How to Use
+
+1. Open any notebook in your preferred Jupyter environment.
+2. Run the cells sequentially to replicate the analysis or model training.
+3. Modify the code to experiment with different parameters or datasets.
+
+## Requirements
+
+Ensure you have all the dependencies installed as listed in the main `requirements.txt` file of the project.
