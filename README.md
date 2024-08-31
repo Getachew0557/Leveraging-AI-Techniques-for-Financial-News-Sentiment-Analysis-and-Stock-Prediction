@@ -20,11 +20,64 @@ Nova Financial Solutions aims to enhance its predictive analytics capabilities t
 
 ## Installation
 
-To set up this project, clone the repository and install the dependencies using:
+To set up this project, you will need to clone the repository and install the necessary dependencies. This project uses Python 3.11 and Conda for environment management.
 
-```bash
-git clone https://github.com/Getachew0557/Leveraging-AI-Techniques-for-Financial-News-Sentiment-Analysis-and-Stock-Prediction.git
-cd Leveraging-AI-Techniques-for-Financial-News-Sentiment-Analysis-and-Stock-Prediction
-conda create --name env_task2 python=3.11
-conda activate env_task2
-pip install -r requirements.txt
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/Getachew0557/Leveraging-AI-Techniques-for-Financial-News-Sentiment-Analysis-and-Stock-Prediction.git
+    cd Leveraging-AI-Techniques-for-Financial-News-Sentiment-Analysis-and-Stock-Prediction
+    ```
+
+2. Create and activate a new Conda environment:
+
+    ```bash
+    conda create --name env_task2 python=3.11
+    conda activate env_task2
+    ```
+
+3. Install the required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+Currently, the project is in the preprocessing stage. Here are the steps you can follow to preprocess the data and perform sentiment analysis:
+
+1. **Data Preprocessing**: Use the `preprocessing.py` script located in the `scripts/` directory to clean and prepare the data for analysis.
+
+    ```bash
+    python scripts/preprocessing.py
+    ```
+
+2. **Sentiment Analysis**: Run the `sentiment.py` script to perform sentiment analysis on the cleaned data.
+
+    ```bash
+    python scripts/sentiment.py
+    ```
+
+3. **Exploratory Data Analysis (EDA)**: Use the `eda.py` script to conduct EDA on the dataset to understand the data distribution and key characteristics.
+
+    ```bash
+    python scripts/eda.py
+    ```
+
+4. **Notebooks**: The `notebooks/` directory contains Jupyter notebooks for model development and analysis for each stock (e.g., `AAPL_model.ipynb` for Apple). You can use these notebooks to experiment with different models and perform detailed analysis.
+
+## Contributing
+
+We welcome contributions to this project! If you would like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
+Please ensure your code adheres to the project's coding standards and is well-documented.
+
+## License
+
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for more information.
