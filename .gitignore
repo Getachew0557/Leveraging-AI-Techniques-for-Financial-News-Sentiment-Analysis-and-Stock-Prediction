@@ -19,6 +19,6 @@ env_task2/
 .vscode/
 
 # Data files
-data/
-*.csv
+data/*
+!data/AAPL_historical_data.csv
 *.json
