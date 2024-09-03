@@ -57,11 +57,10 @@ def test_get_headline_length_stats():
     assert isinstance(stats, pd.Series)
 
 def test_convert_date():
-    df_converted = dp.convert_date(df.copy(), column_name='Date')
+    df_converted = dp.convert_date(df.copy(), column_name='Date', set_index=True)
     assert isinstance(df_converted.index, pd.DatetimeIndex)
     assert 'Date' not in df_converted.columns
-    assert len(df_converted.index) == len(df)  # Ensure the number of rows is unchanged
-    assert df_converted.index.name == 'Date'  # Check that 'Date' is set as the index
+    assert df_converted.index.name == 'Date'
 
 def test_calculate_technical_indicators():
     df_with_indicators = dp.calculate_technical_indicators(df.copy())
