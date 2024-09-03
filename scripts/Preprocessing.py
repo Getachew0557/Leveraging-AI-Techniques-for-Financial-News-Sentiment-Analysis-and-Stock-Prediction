@@ -43,15 +43,17 @@ def convert_date(df, column_name='Date'):
     if column_name not in df.columns:
         raise ValueError(f"Column '{column_name}' not found in DataFrame.")
     
-    # Handle different formats for 'date' and 'Date'
-    if column_name == 'date':
-        df[column_name] = df[column_name].str.slice(0, 19)  # Adjust for specific formats if needed
-    df[column_name] = pd.to_datetime(df[column_name]).dt.date
+    # Convert the column to datetime
+    df[column_name] = pd.to_datetime(df[column_name], errors='coerce').dt.date
     
     # Set this column as the index
     df.set_index(column_name, inplace=True)
     
+    # Convert the index to DatetimeIndex
+    df.index = pd.to_datetime(df.index)
+    
     return df
+
 
 def calculate_technical_indicators(df):
     """Calculate basic technical indicators using TA-Lib."""
