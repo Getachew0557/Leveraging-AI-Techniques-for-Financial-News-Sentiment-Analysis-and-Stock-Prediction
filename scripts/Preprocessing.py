@@ -39,7 +39,7 @@ def get_headline_length_stats(df):
 
 
 def convert_date(df, column_name='Date'):
-    """Convert a specified column to datetime."""
+    """Convert a specified column to datetime and set it as the index."""
     if column_name not in df.columns:
         raise ValueError(f"Column '{column_name}' not found in DataFrame.")
     
@@ -48,8 +48,8 @@ def convert_date(df, column_name='Date'):
         df[column_name] = df[column_name].str.slice(0, 19)  # Adjust for specific formats if needed
     df[column_name] = pd.to_datetime(df[column_name]).dt.date
     
-    # If you want to set this column as the index, uncomment the line below:
-    # df.set_index(column_name, inplace=True)
+    # Set this column as the index
+    df.set_index(column_name, inplace=True)
     
     return df
 
