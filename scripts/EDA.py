@@ -150,3 +150,84 @@ def sentimentClass(df):
     plt.xlabel('Sentiment')
     plt.ylabel('Number of Articles')
     plt.show()  
+
+def plot_distributions(final_data):
+    plt.figure(figsize=(14, 7))
+    plt.subplot(2, 2, 1)
+    sns.histplot(final_data['Close'], kde=True, bins=30)
+    plt.title('Distribution of Closing Prices')
+    plt.xlabel('Closing Price')
+    plt.ylabel('Frequency')
+
+    plt.subplot(2, 2, 2)
+    sns.histplot(final_data['average_sentiment_score'], kde=True, bins=30)
+    plt.title('Distribution of Sentiment Scores')
+    plt.xlabel('Average Sentiment Score')
+    plt.ylabel('Frequency')
+
+    plt.tight_layout()
+    plt.show()
+
+def plot_scatter(final_data):
+    plt.figure(figsize=(12, 6))
+    plt.subplot(1, 2, 1)
+    sns.scatterplot(data=final_data, x='average_sentiment_score', y='daily_return')
+    plt.title('Sentiment Score vs. Daily Return')
+    plt.xlabel('Average Sentiment Score')
+    plt.ylabel('Daily Return')
+
+    plt.subplot(1, 2, 2)
+    sns.scatterplot(data=final_data, x='average_sentiment_score', y='Close')
+    plt.title('Sentiment Score vs. Closing Price')
+    plt.xlabel('Average Sentiment Score')
+    plt.ylabel('Closing Price')
+
+    plt.tight_layout()
+    plt.show()
+
+def plot_heatmap(final_data):
+    correlation_matrix = final_data[['average_sentiment_score', 'daily_return', 'Close']].corr()
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('Correlation Heatmap')
+    plt.show()
+
+def plot_distributions(final_data):
+    plt.figure(figsize=(14, 7))
+    plt.subplot(2, 2, 1)
+    sns.histplot(final_data['Close'], kde=True, bins=30)
+    plt.title('Distribution of Closing Prices')
+    plt.xlabel('Closing Price')
+    plt.ylabel('Frequency')
+    
+    plt.subplot(2, 2, 2)
+    sns.histplot(final_data['average_sentiment_score'], kde=True, bins=30)
+    plt.title('Distribution of Sentiment Scores')
+    plt.xlabel('Average Sentiment Score')
+    plt.ylabel('Frequency')
+    
+    plt.tight_layout()
+    plt.show()
+
+def plot_scatter_and_heatmap(final_data):
+    plt.figure(figsize=(12, 6))
+    plt.subplot(1, 2, 1)
+    sns.scatterplot(data=final_data, x='average_sentiment_score', y='daily_return')
+    plt.title('Sentiment Score vs. Daily Return')
+    plt.xlabel('Average Sentiment Score')
+    plt.ylabel('Daily Return')
+
+    plt.subplot(1, 2, 2)
+    sns.scatterplot(data=final_data, x='average_sentiment_score', y='Close')
+    plt.title('Sentiment Score vs. Closing Price')
+    plt.xlabel('Average Sentiment Score')
+    plt.ylabel('Closing Price')
+
+    plt.tight_layout()
+    plt.show()
+
+    correlation_matrix = final_data[['average_sentiment_score', 'daily_return', 'Close']].corr()
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('Correlation Heatmap')
+    plt.show()

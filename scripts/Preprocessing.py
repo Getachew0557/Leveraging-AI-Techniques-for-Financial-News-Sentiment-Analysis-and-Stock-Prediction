@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 import pynance
 
 def load_data(file_path):
-
     df = pd.read_csv(file_path)
     return df
+
 
 def summary_statistics(df):
 
@@ -38,10 +38,19 @@ def get_headline_length_stats(df):
     return df['headline_length'].describe()
 
 
-def convert_date(df):
-    """Convert the 'Date' column to datetime and set it as the index."""
-    df['Date'] = pd.to_datetime(df['Date'])
-    df.set_index('Date', inplace=True)
+def convert_date(df, column_name='Date'):
+    """Convert a specified column to datetime."""
+    if column_name not in df.columns:
+        raise ValueError(f"Column '{column_name}' not found in DataFrame.")
+    
+    # Handle different formats for 'date' and 'Date'
+    if column_name == 'date':
+        df[column_name] = df[column_name].str.slice(0, 19)  # Adjust for specific formats if needed
+    df[column_name] = pd.to_datetime(df[column_name]).dt.date
+    
+    # If you want to set this column as the index, uncomment the line below:
+    # df.set_index(column_name, inplace=True)
+    
     return df
 
 def calculate_technical_indicators(df):
